@@ -1,5 +1,5 @@
 <%@ page import="discapp.PlayerDashboard" %>
-<%@ page import="static discapp.PlayerDashboard.*" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: cruot
   Date: 6/16/2017
@@ -13,6 +13,7 @@
 </head>
 <body>
     <jsp:useBean id = "dashboard" class="discapp.PlayerDashboard"/>
+    <jsp:setProperty name="dashboard" property="playerString" value="cruoti@gmail.com"/>
     <p><jsp:getProperty name="dashboard" property="message"/></p>
 </body>
 </html>

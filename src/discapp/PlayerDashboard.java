@@ -7,11 +7,11 @@ import java.util.ArrayList;
  */
 public class PlayerDashboard implements java.io.Serializable{
     private Player player;
-    private String message = "abc";
+    PlayerData data = PlayerData.getInstance();
 
     public PlayerDashboard() {
         ArrayList<Round> rounds = new ArrayList<Round>();
-        String user = "cruoti@gmail.com";
+        String user = "temp";
         this.player = new Player(user, rounds);
     }
 
@@ -23,8 +23,14 @@ public class PlayerDashboard implements java.io.Serializable{
         this.player = player;
     }
 
+    public void setPlayerString(String username) {
+//        this.player = new Player(username, new ArrayList<Round>());
+        this.player = data.getPlayer(username);
+    }
+
     public String getMessage() {
         return this.player.get_username() + ", you are awesome!!!" ;
     }
 
 }
+
