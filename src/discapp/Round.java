@@ -12,7 +12,7 @@ public class Round {
 
     private ArrayList<Integer> scores;
 
-    public void Round(Date date, String course_name, ArrayList<Integer> scores)
+    public Round(Date date, String course_name, ArrayList<Integer> scores)
     {
         this.date = date;
         this.course_name = course_name;

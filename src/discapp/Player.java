@@ -9,7 +9,7 @@ public class Player {
     private String username;
     private ArrayList<Round> rounds;
 
-    public void Player(String username, ArrayList<Round> rounds)
+    public Player(String username, ArrayList<Round> rounds)
     {
         this.username = username;
         this.rounds = rounds;

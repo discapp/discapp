@@ -9,7 +9,7 @@ public class Course {
     private String name;
     private ArrayList<Integer> par;
 
-    public void Course(String name, ArrayList<Integer> par)
+    public Course(String name, ArrayList<Integer> par)
     {
         this.name = name;
         this.par = par;
