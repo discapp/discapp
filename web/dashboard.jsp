@@ -12,6 +12,7 @@
     <title>Player Dashboard</title>
 </head>
 <body>
-    <h3 class="message"><%=PlayerDashboard.getMessage()%></h3>
+    <jsp:useBean id = "dashboard" class="discapp.PlayerDashboard"/>
+    <p><jsp:getProperty name="dashboard" property="message"/></p>
 </body>
 </html>
