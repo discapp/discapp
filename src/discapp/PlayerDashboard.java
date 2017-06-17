@@ -24,12 +24,15 @@ public class PlayerDashboard implements java.io.Serializable{
     }
 
     public void setPlayerString(String username) {
-//        this.player = new Player(username, new ArrayList<Round>());
         this.player = data.getPlayer(username);
     }
 
     public String getMessage() {
         return this.player.get_username() + ", you are awesome!!!" ;
+    }
+
+    public ArrayList<Round> getPlayerRounds() {
+        return this.player.get_rounds();
     }
 
 }
