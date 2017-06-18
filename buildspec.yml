@@ -15,7 +15,8 @@ phases:
       - echo Nothing to do in the pre_build phase...
 artifacts:
   files:
-    - .ebextensions/**/*
+    - /tomcat-api.jar
+    - /servlet-api.jar
     - web/**/*
     - src/**/*
     - '**/*'
