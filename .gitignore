@@ -10,3 +10,10 @@
   
 # Mac  
 .DS_Store
+/bin/
+/build/
+/target/
+
+/lib/
+/out/*
+/web/WEB-INF/lib/
