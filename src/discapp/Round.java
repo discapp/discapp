@@ -31,4 +31,10 @@ public class Round {
         return scores;
     }
 
+    public int getTotalScore() {
+        int sum = 0;
+        for(int score : this.scores)
+            sum += score;
+        return sum;
+    }
 }

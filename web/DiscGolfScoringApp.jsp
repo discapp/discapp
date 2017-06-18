@@ -106,6 +106,7 @@
                 <c:forEach var="score" items="${round.scores}">
                   <td>${score}</td>
                 </c:forEach>
+                <td>${round.totalScore}</td>
               </tr>
             </c:forEach>
           </tbody>
@@ -314,6 +315,7 @@
                 <c:forEach var="score" items="${round.scores}">
                   <td>${score}</td>
                 </c:forEach>
+                <td>${round.totalScore}</td>
               </tr>
             </c:forEach>
           </tbody>
