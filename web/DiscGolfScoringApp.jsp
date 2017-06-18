@@ -3,6 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<jsp:useBean id = "dashboard" class="discapp.PlayerDashboard"/>
+<jsp:setProperty name="dashboard" property="playerString" value="cruoti@gmail.com"/>
+
 <html language="en">
 <head>
   <meta charset="UTF-8">
@@ -36,7 +39,6 @@
 </head>
 
 <body>
-
   <nav role="navigation" class="navbar navbar-inverse navbar-static-top">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -96,9 +98,7 @@
           </thead>
 
           <tbody>
-            <jsp:useBean id = "dashboard" class="discapp.PlayerDashboard"/>
-            <jsp:setProperty name="dashboard" property="playerString" value="cruoti@gmail.com"/>
-            <c:set var="rounds" value="${dashboard.playerRounds}"/>
+            <c:set var="rounds" value="${dashboard.recentPlayerRounds}"/>
             <c:forEach var="round" items="${rounds}">
               <tr>
                 <td>${round.date}</td>
@@ -306,7 +306,8 @@
             </tr>
           </thead>
           <tbody>
-            <c:forEach var="round" items="${rounds}">
+            <c:set var="all_rounds" value="${dashboard.playerRounds}"/>
+            <c:forEach var="round" items="${all_rounds}">
               <tr>
                 <td>${round.date}</td>
                 <td>${round.course_name}</td>
