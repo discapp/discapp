@@ -125,11 +125,14 @@
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">Test Course 1</a></li>
-            <li><a href="#">Test Course 2</a></li>
-            <li><a href="#">Test Course 3</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Special Test Course if needed</a></li>
+            <c:forEach var="course_name" items="${dashboard.playedCourseNames}">
+              <li><a href="#">${course_name}</a></li>
+            </c:forEach>
+            <%--<li><a href="#">Test Course 1</a></li>--%>
+            <%--<li><a href="#">Test Course 2</a></li>--%>
+            <%--<li><a href="#">Test Course 3</a></li>--%>
+            <%--<li role="separator" class="divider"></li>--%>
+            <%--<li><a href="#">Special Test Course if needed</a></li>--%>
           </ul>
         </div>
       </div>

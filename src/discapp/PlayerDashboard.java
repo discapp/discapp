@@ -1,7 +1,10 @@
 package discapp;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by cruot on 6/16/2017.
@@ -44,6 +47,17 @@ public class PlayerDashboard implements java.io.Serializable{
             recent_size = this.player.get_rounds().size();
         }
         return this.player.get_rounds().subList(0, recent_size);
+    }
+
+    public Set<String> getPlayedCourseNames() {
+        Set<String> courseNames = new HashSet<String>();
+
+        for(Round round : this.getPlayerRounds())
+        {
+            courseNames.add(round.getCourse_name());
+        }
+
+        return courseNames;
     }
 }
 
