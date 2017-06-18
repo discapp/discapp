@@ -71,9 +71,9 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>Course</th>
               <th>Date</th>
-              <th>Hole 1</th>
+              <th>Course</th>
+              <th>1</th>
               <th>2</th>
               <th>3</th>
               <th>4</th>
@@ -96,121 +96,18 @@
           </thead>
 
           <tbody>
-            <tr>
-              <td>Test Data #1</td>
-              <td>6/15/2017</td>
-              <td>1</td>
-              <td>35</td>
-              <td>2</td>
-              <td>5</td>
-              <td>1</td>
-              <td>6</td>
-              <td>3</td>
-              <td>35</td>
-              <td>9</td>
-              <td>4</td>
-              <td>1</td>
-              <td>8</td>
-              <td>2</td>
-              <td>35</td>
-              <td>9</td>
-              <td>8</td>
-              <td>4</td>
-              <td>4</td>
-              <td>23</td>
-            </tr>
-            <tr>
-              <td>Test Data #2</td>
-              <td>6/15/2017</td>
-              <td>1</td>
-              <td>35</td>
-              <td>2</td>
-              <td>5</td>
-              <td>1</td>
-              <td>6</td>
-              <td>3</td>
-              <td>35</td>
-              <td>9</td>
-              <td>4</td>
-              <td>1</td>
-              <td>8</td>
-              <td>2</td>
-              <td>35</td>
-              <td>9</td>
-              <td>8</td>
-              <td>4</td>
-              <td>4</td>
-              <td>23</td>
-            </tr>
-            <tr>
-              <td>Test Data #3</td>
-              <td>6/15/2017</td>
-              <td>1</td>
-              <td>35</td>
-              <td>2</td>
-              <td>5</td>
-              <td>1</td>
-              <td>6</td>
-              <td>3</td>
-              <td>35</td>
-              <td>9</td>
-              <td>4</td>
-              <td>1</td>
-              <td>8</td>
-              <td>2</td>
-              <td>35</td>
-              <td>9</td>
-              <td>8</td>
-              <td>4</td>
-              <td>4</td>
-              <td>23</td>
-            </tr>
-            <tr>
-              <td>Test Data #4</td>
-              <td>6/15/2017</td>
-              <td>1</td>
-              <td>35</td>
-              <td>2</td>
-              <td>5</td>
-              <td>1</td>
-              <td>6</td>
-              <td>3</td>
-              <td>35</td>
-              <td>9</td>
-              <td>4</td>
-              <td>1</td>
-              <td>8</td>
-              <td>2</td>
-              <td>35</td>
-              <td>9</td>
-              <td>8</td>
-              <td>4</td>
-              <td>4</td>
-              <td>23</td>
-            </tr>
-            <tr>
-              <td>Test Data #5</td>
-              <td>6/15/2017</td>
-              <td>1</td>
-              <td>35</td>
-              <td>2</td>
-              <td>5</td>
-              <td>1</td>
-              <td>6</td>
-              <td>3</td>
-              <td>35</td>
-              <td>9</td>
-              <td>4</td>
-              <td>1</td>
-              <td>8</td>
-              <td>2</td>
-              <td>35</td>
-              <td>9</td>
-              <td>8</td>
-              <td>4</td>
-              <td>4</td>
-              <td>23</td>
-            </tr>
+            <jsp:useBean id = "dashboard" class="discapp.PlayerDashboard"/>
+            <jsp:setProperty name="dashboard" property="playerString" value="cruoti@gmail.com"/>
+            <c:set var="rounds" value="${dashboard.playerRounds}"/>
+            <c:forEach var="round" items="${rounds}">
+              <tr>
+                <td>${round.date}</td>
+                <td>${round.course_name}</td>
+                <c:forEach var="score" items="${round.scores}">
+                  <td>${score}</td>
+                </c:forEach>
+              </tr>
+            </c:forEach>
           </tbody>
         </table>
       </div>
@@ -385,9 +282,9 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>Course</th>
               <th>Date</th>
-              <th>Hole 1</th>
+              <th>Course</th>
+              <th>1</th>
               <th>2</th>
               <th>3</th>
               <th>4</th>
@@ -409,121 +306,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Test Data #1</td>
-              <td>6/15/2017</td>
-              <td>1</td>
-              <td>35</td>
-              <td>2</td>
-              <td>5</td>
-              <td>1</td>
-              <td>6</td>
-              <td>3</td>
-              <td>35</td>
-              <td>9</td>
-              <td>4</td>
-              <td>1</td>
-              <td>8</td>
-              <td>2</td>
-              <td>35</td>
-              <td>9</td>
-              <td>8</td>
-              <td>4</td>
-              <td>4</td>
-              <td>23</td>
-            </tr>
-            <tr>
-              <td>Test Data #2</td>
-              <td>6/15/2017</td>
-              <td>1</td>
-              <td>35</td>
-              <td>2</td>
-              <td>5</td>
-              <td>1</td>
-              <td>6</td>
-              <td>3</td>
-              <td>35</td>
-              <td>9</td>
-              <td>4</td>
-              <td>1</td>
-              <td>8</td>
-              <td>2</td>
-              <td>35</td>
-              <td>9</td>
-              <td>8</td>
-              <td>4</td>
-              <td>4</td>
-              <td>23</td>
-            </tr>
-            <tr>
-              <td>Test Data #3</td>
-              <td>6/15/2017</td>
-              <td>1</td>
-              <td>35</td>
-              <td>2</td>
-              <td>5</td>
-              <td>1</td>
-              <td>6</td>
-              <td>3</td>
-              <td>35</td>
-              <td>9</td>
-              <td>4</td>
-              <td>1</td>
-              <td>8</td>
-              <td>2</td>
-              <td>35</td>
-              <td>9</td>
-              <td>8</td>
-              <td>4</td>
-              <td>4</td>
-              <td>23</td>
-            </tr>
-            <tr>
-              <td>Test Data #4</td>
-              <td>6/15/2017</td>
-              <td>1</td>
-              <td>35</td>
-              <td>2</td>
-              <td>5</td>
-              <td>1</td>
-              <td>6</td>
-              <td>3</td>
-              <td>35</td>
-              <td>9</td>
-              <td>4</td>
-              <td>1</td>
-              <td>8</td>
-              <td>2</td>
-              <td>35</td>
-              <td>9</td>
-              <td>8</td>
-              <td>4</td>
-              <td>4</td>
-              <td>23</td>
-            </tr>
-            <tr>
-              <td>Test Data #5</td>
-              <td>6/15/2017</td>
-              <td>1</td>
-              <td>35</td>
-              <td>2</td>
-              <td>5</td>
-              <td>1</td>
-              <td>6</td>
-              <td>3</td>
-              <td>35</td>
-              <td>9</td>
-              <td>4</td>
-              <td>1</td>
-              <td>8</td>
-              <td>2</td>
-              <td>35</td>
-              <td>9</td>
-              <td>8</td>
-              <td>4</td>
-              <td>4</td>
-              <td>23</td>
-            </tr>
+            <c:forEach var="round" items="${rounds}">
+              <tr>
+                <td>${round.date}</td>
+                <td>${round.course_name}</td>
+                <c:forEach var="score" items="${round.scores}">
+                  <td>${score}</td>
+                </c:forEach>
+              </tr>
+            </c:forEach>
           </tbody>
         </table>
       </div>
