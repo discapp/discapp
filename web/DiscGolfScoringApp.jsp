@@ -1,7 +1,6 @@
-<%@ page import="discapp.PlayerDashboard" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, discapp.* "%>
 
 <jsp:useBean id = "dashboard" class="discapp.PlayerDashboard"/>
 <jsp:setProperty name="dashboard" property="playerString" value="cruoti@gmail.com"/>
@@ -60,7 +59,7 @@
 
   <section>
     <div class="btn-group" role="group" aria-label="...">
-      <a href="DiscGolfScoringAppAddNewScore.html"<button type="button" class="btn btn-success">+ Add New Score</button></a>
+      <input type="button" value="Add" onClick="javascript:window.location='DiscGolfScoringApp.jsp';">
     </div>
     <br></br>
 
