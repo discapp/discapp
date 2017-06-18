@@ -144,32 +144,32 @@
       <button id="removeDataset">Remove Dataset</button>
       <button id="addData">Add Data</button>
       <button id="removeData">Remove Data</button>-->
+      <c:set var="all_rounds" value="${dashboard.playerRounds}"/>
+
       <script>
         var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var config = {
           type: 'line',
           data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            labels: [
+              <c:forEach var="round" items="${dashboard.playerRounds}" varStatus="roundStatus">
+                "<c:out value="${round.dateString}"/>"
+                <c:if test="${!roundStatus.last}">
+                  ,
+                </c:if>
+              </c:forEach>
+            ],
             datasets: [{
             label: "Course",
             backgroundColor: window.chartColors.green,
             borderColor: window.chartColors.green,
             data: [
-              <!--Example of how data will be set up. We will need to sync(Replace the randomScalingFactor methods) a database up to this to populate the actual graph-->
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor()
+              <c:forEach var="round" items="${dashboard.playerRounds}" varStatus="roundStatus">
+                <c:out value="${round.totalScore}"/>
+                <c:if test="${!roundStatus.last}">
+                  ,
+                </c:if>
+              </c:forEach>
             ],
             fill: false,
             },]

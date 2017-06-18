@@ -1,5 +1,6 @@
 package discapp;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -36,5 +37,12 @@ public class Round {
         for(int score : this.scores)
             sum += score;
         return sum;
+    }
+
+    public String getDateString() {
+        String dateString = new SimpleDateFormat("MM-dd-yyyy").format(this.date);
+//        String dateString = this.date.toString();
+        System.out.println(dateString);
+        return dateString;
     }
 }
