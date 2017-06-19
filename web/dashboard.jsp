@@ -1,4 +1,5 @@
 <%@ page contenttype="text/html; charset=UTF-8"%>
+<%@ page import="discapp.* "%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
