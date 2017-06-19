@@ -39,6 +39,8 @@
 </head>
 
 <body>
+
+ <c:set var="blah" value="corinne is awesome" scope="session" />
   <nav role="navigation" class="navbar navbar-inverse navbar-static-top">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -60,7 +62,7 @@
 
   <section>
     <div class="btn-group" role="group" aria-label="...">
-      <a href="DiscGolfScoringAppAddNewScore.html"<button type="button" class="btn btn-success">+ Add New Score</button></a>
+      <a href="DiscGolfScoringAppAddNewScore.jsp"<button type="button" class="btn btn-success">+ Add New Score</button></a>
     </div>
     <br></br>
 
