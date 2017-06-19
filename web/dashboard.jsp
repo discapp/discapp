@@ -6,6 +6,8 @@
 <html>
 <head>
     <title>Player Dashboard</title>
+    <link rel ="stylesheet" type ="text/css" href ="DiscGolfScoringApp.css">
+    <script src="DiscGolfScoringAppUtil.js"></script>
 </head>
 <body>
     <jsp:useBean id ="dashboard" class="discapp.PlayerDashboard"/>

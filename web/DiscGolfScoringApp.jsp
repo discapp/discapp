@@ -14,9 +14,7 @@
        <script src=files/html5shiv.js"></script>
   <![endif]-->
 
-  <link rel = "stylesheet"
-    type = "text/css"
-    href = "DiscGolfScoringApp.css" />
+  <link rel ="stylesheet" type ="text/css" href ="DiscGolfScoringApp.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
