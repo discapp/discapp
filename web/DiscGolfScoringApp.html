@@ -1,10 +1,10 @@
 <%@ page import="discapp.PlayerDashboard" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!--<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>-->
+<!--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>-->
 
-<jsp:useBean id = "dashboard" class="discapp.PlayerDashboard"/>
-<jsp:setProperty name="dashboard" property="playerString" value="cruoti@gmail.com"/>
+<!--<jsp:useBean id = "dashboard" class="discapp.PlayerDashboard"/>-->
+<!--<jsp:setProperty name="dashboard" property="playerString" value="cruoti@gmail.com"/>-->
 
 <html language="en">
 <head>
@@ -40,7 +40,7 @@
 
 <body>
 
- <c:set var="blah" value="corinne is awesome" scope="session" />
+ <!--<c:set var="blah" value="corinne is awesome" scope="session" />-->
   <nav role="navigation" class="navbar navbar-inverse navbar-static-top">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -52,7 +52,7 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="DiscGolfScoringApp.jsp">User Dashboard</a></li>
+        <li><a href="DiscGolfScoringApp.html">User Dashboard</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Links</a></li>
         <li><a href="#">Contact</a></li>
@@ -62,7 +62,7 @@
 
   <section>
     <div class="btn-group" role="group" aria-label="...">
-      <a href="DiscGolfScoringAppAddNewScore.jsp"<button type="button" class="btn btn-success">+ Add New Score</button></a>
+      <a href="DiscGolfScoringAppAddNewScore.html"<button type="button" class="btn btn-success">+ Add New Score</button></a>
     </div>
     <br></br>
 
@@ -100,17 +100,17 @@
           </thead>
 
           <tbody>
-            <c:set var="rounds" value="${dashboard.recentPlayerRounds}"/>
-            <c:forEach var="round" items="${rounds}">
-              <tr>
-                <td>${round.date}</td>
-                <td>${round.course_name}</td>
-                <c:forEach var="score" items="${round.scores}">
-                  <td>${score}</td>
-                </c:forEach>
-                <td>${round.totalScore}</td>
-              </tr>
-            </c:forEach>
+            <!--<c:set var="rounds" value="${dashboard.recentPlayerRounds}"/>-->
+            <!--<c:forEach var="round" items="${rounds}">-->
+              <!--<tr>-->
+                <!--<td>${round.date}</td>-->
+                <!--<td>${round.course_name}</td>-->
+                <!--<c:forEach var="score" items="${round.scores}">-->
+                  <!--<td>${score}</td>-->
+                <!--</c:forEach>-->
+                <!--<td>${round.totalScore}</td>-->
+              <!--</tr>-->
+            <!--</c:forEach>-->
           </tbody>
         </table>
       </div>
@@ -127,9 +127,9 @@
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <c:forEach var="course_name" items="${dashboard.playedCourseNames}">
-              <li><a href="#">${course_name}</a></li>
-            </c:forEach>
+            <!--<c:forEach var="course_name" items="${dashboard.playedCourseNames}">-->
+              <!--<li><a href="#">${course_name}</a></li>-->
+            <!--</c:forEach>-->
             <%--<li><a href="#">Test Course 1</a></li>--%>
             <%--<li><a href="#">Test Course 2</a></li>--%>
             <%--<li><a href="#">Test Course 3</a></li>--%>
@@ -157,24 +157,24 @@
           type: 'line',
           data: {
             labels: [
-              <c:forEach var="round" items="${dashboard.playerRounds}" varStatus="roundStatus">
-                "<c:out value="${round.dateString}"/>"
-                <c:if test="${!roundStatus.last}">
-                  ,
-                </c:if>
-              </c:forEach>
+//              <c:forEach var="round" items="${dashboard.playerRounds}" varStatus="roundStatus">
+//                "<c:out value="${round.dateString}"/>"
+//                <c:if test="${!roundStatus.last}">
+//                  ,
+//                </c:if>
+//              </c:forEach>
             ],
             datasets: [{
             label: "Course",
             backgroundColor: window.chartColors.green,
             borderColor: window.chartColors.green,
             data: [
-              <c:forEach var="round" items="${dashboard.playerRounds}" varStatus="roundStatus">
-                <c:out value="${round.totalScore}"/>
-                <c:if test="${!roundStatus.last}">
-                  ,
-                </c:if>
-              </c:forEach>
+//              <c:forEach var="round" items="${dashboard.playerRounds}" varStatus="roundStatus">
+//                <c:out value="${round.totalScore}"/>
+//                <c:if test="${!roundStatus.last}">
+//                  ,
+//                </c:if>
+//              </c:forEach>
             ],
             fill: false,
             },]
@@ -312,17 +312,17 @@
             </tr>
           </thead>
           <tbody>
-            <c:set var="all_rounds" value="${dashboard.playerRounds}"/>
-            <c:forEach var="round" items="${all_rounds}">
-              <tr>
-                <td>${round.date}</td>
-                <td>${round.course_name}</td>
-                <c:forEach var="score" items="${round.scores}">
-                  <td>${score}</td>
-                </c:forEach>
-                <td>${round.totalScore}</td>
-              </tr>
-            </c:forEach>
+            <!--<c:set var="all_rounds" value="${dashboard.playerRounds}"/>-->
+            <!--<c:forEach var="round" items="${all_rounds}">-->
+              <!--<tr>-->
+                <!--<td>${round.date}</td>-->
+                <!--<td>${round.course_name}</td>-->
+                <!--<c:forEach var="score" items="${round.scores}">-->
+                  <!--<td>${score}</td>-->
+                <!--</c:forEach>-->
+                <!--<td>${round.totalScore}</td>-->
+              <!--</tr>-->
+            <!--</c:forEach>-->
           </tbody>
         </table>
       </div>
