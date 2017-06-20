@@ -150,7 +150,11 @@
       </div>
       <br></br>
 
-      <div class="wrapper"><button type="button" class="btn btn-default">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="button" class="btn btn-default">Cancel</button></div>
+      <div class="wrapper">
+        <a href="DiscGolfScoringApp.jsp"><button type="button" class="btn btn-default">Submit</button></a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="DiscGolfScoringApp.jsp"><button type="button" class="btn btn-default">Cancel</button></a>
+      </div>
     </section>
   </body>
 </html>
