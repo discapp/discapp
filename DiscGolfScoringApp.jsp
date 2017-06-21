@@ -1,23 +1,20 @@
-<%@ page import="discapp.PlayerDashboard" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contenttype="text/html; charset=UTF-8"%>
+<%@ page import="discapp.* "%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<jsp:useBean id = "dashboard" class="discapp.PlayerDashboard"/>
+<jsp:useBean id ="dashboard" class="discapp.PlayerDashboard"/>
 <jsp:setProperty name="dashboard" property="playerString" value="cruoti@gmail.com"/>
 
 <html language="en">
 <head>
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 
   <!--[if 1t IE 9]>
        <script src=files/html5shiv.js"></script>
   <![endif]-->
 
-  <link rel = "stylesheet"
-    type = "text/css"
-    href = "DiscGolfScoringApp.css" />
+  <link rel ="stylesheet" type ="text/css" href ="DiscGolfScoringApp.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
@@ -60,7 +57,7 @@
 
   <section>
     <div class="btn-group" role="group" aria-label="...">
-      <a href="DiscGolfScoringAppAddNewScore.html"<button type="button" class="btn btn-success">+ Add New Score</button></a>
+      <input type="button" value="Add" onClick="javascript:window.location='DiscGolfScoringApp.jsp';">
     </div>
     <br></br>
 
