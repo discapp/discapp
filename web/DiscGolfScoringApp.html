@@ -1,5 +1,5 @@
-<%@ page import="discapp.PlayerDashboard" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!--<%@ page import="discapp.PlayerDashboard" %>-->
+<!--<%@ page contentType="text/html;charset=UTF-8" language="java" %>-->
 <!--<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>-->
 <!--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>-->
 
@@ -100,7 +100,13 @@
           </thead>
 
           <tbody>
-            <!--<c:set var="rounds" value="${dashboard.recentPlayerRounds}"/>-->
+          <tr><td>06/17/2017</td><td>wickham</td><td>3</td><td>3</td><td>3</td><td>3</td><td>5</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>4</td><td>2</td><td>3</td><td>3</td><td>2</td><td>51</td></tr>
+          <tr><td>06/11/2017</td><td>wickham</td><td>2</td><td>2</td><td>4</td><td>2</td><td>5</td><td>3</td><td>3</td><td>4</td><td>2</td><td>2</td><td>4</td><td>2</td><td>3</td><td>4</td><td>2</td><td>4</td><td>3</td><td>3</td><td>58</td></tr>
+          <tr><td>06/10/2017</td><td>wickham</td><td>4</td><td>3</td><td>4</td><td>3</td><td>4</td><td>4</td><td>2</td><td>4</td><td>3</td><td>3</td><td>3</td><td>4</td><td>3</td><td>5</td><td>4</td><td>3</td><td>4</td><td>3</td><td>54</td></tr>
+          <tr><td>06/03/2017</td><td>wickham</td><td>3</td><td>3</td><td>4</td><td>2</td><td>5</td><td>4</td><td>3</td><td>3</td><td>2</td><td>4</td><td>2</td><td>3</td><td>3</td><td>4</td><td>2</td><td>3</td><td>3</td><td>3</td><td>52</td></tr>
+          <tr><td>6/01/2017</td><td>vernon</td><td>3</td><td>3</td><td>2</td><td>3</td><td>2</td><td>4</td><td>3</td><td>2</td><td>2</td><td>3</td><td>2</td><td>2</td><td>3</td><td>2</td><td>3</td><td>2</td><td>2</td><td>4</td><td>45</td></tr>
+
+          <!--<c:set var="rounds" value="${dashboard.recentPlayerRounds}"/>-->
             <!--<c:forEach var="round" items="${rounds}">-->
               <!--<tr>-->
                 <!--<td>${round.date}</td>-->
@@ -130,11 +136,9 @@
             <!--<c:forEach var="course_name" items="${dashboard.playedCourseNames}">-->
               <!--<li><a href="#">${course_name}</a></li>-->
             <!--</c:forEach>-->
-            <%--<li><a href="#">Test Course 1</a></li>--%>
-            <%--<li><a href="#">Test Course 2</a></li>--%>
-            <%--<li><a href="#">Test Course 3</a></li>--%>
-            <%--<li role="separator" class="divider"></li>--%>
-            <%--<li><a href="#">Special Test Course if needed</a></li>--%>
+            <li><a href="#">wickham</a></li>
+            <li><a href="#">vernon</a></li>
+
           </ul>
         </div>
       </div>
@@ -149,7 +153,7 @@
       <button id="removeDataset">Remove Dataset</button>
       <button id="addData">Add Data</button>
       <button id="removeData">Remove Data</button>-->
-      <c:set var="all_rounds" value="${dashboard.playerRounds}"/>
+      <!--<c:set var="all_rounds" value="${dashboard.playerRounds}"/>-->
 
       <script>
         var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -157,6 +161,13 @@
           type: 'line',
           data: {
             labels: [
+                "05/25/2017",
+                "05/28/2017",
+                "06/03/2017",
+                "06/10/2017",
+                "06/11/2017",
+                "06/17/2017",
+
 //              <c:forEach var="round" items="${dashboard.playerRounds}" varStatus="roundStatus">
 //                "<c:out value="${round.dateString}"/>"
 //                <c:if test="${!roundStatus.last}">
@@ -169,6 +180,14 @@
             backgroundColor: window.chartColors.green,
             borderColor: window.chartColors.green,
             data: [
+
+                57,
+                56,
+                52,
+                54,
+                58,
+                51
+
 //              <c:forEach var="round" items="${dashboard.playerRounds}" varStatus="roundStatus">
 //                <c:out value="${round.totalScore}"/>
 //                <c:if test="${!roundStatus.last}">
@@ -312,6 +331,13 @@
             </tr>
           </thead>
           <tbody>
+            <tr><td>06/17/2017</td><td>wickham</td><td>3</td><td>3</td><td>3</td><td>3</td><td>5</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>4</td><td>2</td><td>3</td><td>3</td><td>2</td><td>51</td></tr>
+            <tr><td>06/11/2017</td><td>wickham</td><td>2</td><td>2</td><td>4</td><td>2</td><td>5</td><td>3</td><td>3</td><td>4</td><td>2</td><td>2</td><td>4</td><td>2</td><td>3</td><td>4</td><td>2</td><td>4</td><td>3</td><td>3</td><td>58</td></tr>
+            <tr><td>06/10/2017</td><td>wickham</td><td>4</td><td>3</td><td>4</td><td>3</td><td>4</td><td>4</td><td>2</td><td>4</td><td>3</td><td>3</td><td>3</td><td>4</td><td>3</td><td>5</td><td>4</td><td>3</td><td>4</td><td>3</td><td>54</td></tr>
+            <tr><td>06/03/2017</td><td>wickham</td><td>3</td><td>3</td><td>4</td><td>2</td><td>5</td><td>4</td><td>3</td><td>3</td><td>2</td><td>4</td><td>2</td><td>3</td><td>3</td><td>4</td><td>2</td><td>3</td><td>3</td><td>3</td><td>52</td></tr>
+            <tr><td>05/28/2017</td><td>wickham</td><td>3</td><td>3</td><td>4</td><td>2</td><td>5</td><td>4</td><td>3</td><td>3</td><td>2</td><td>3</td><td>3</td><td>3</td><td>3</td><td>4</td><td>2</td><td>3</td><td>3</td><td>3</td><td>56</td></tr>
+            <tr><td>05/25/2017</td><td>wickham</td><td>3</td><td>3</td><td>2</td><td>3</td><td>4</td><td>5</td><td>2</td><td>6</td><td>2</td><td>3</td><td>3</td><td>3</td><td>3</td><td>4</td><td>2</td><td>3</td><td>3</td><td>3</td><td>57</td></tr>
+
             <!--<c:set var="all_rounds" value="${dashboard.playerRounds}"/>-->
             <!--<c:forEach var="round" items="${all_rounds}">-->
               <!--<tr>-->
