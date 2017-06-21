@@ -83,7 +83,8 @@ h1{
 
     margin-top:20px;
     margin-bottom:20px;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
     margin-left:16px;
     font-weight:800;
     font-size:0.8em;
@@ -127,8 +128,6 @@ footer {
     width:auto;
     height:auto;
 }
-
-* {box-sizing: border-box;}
 
 .wrapper {
     padding-top: 6rem;
