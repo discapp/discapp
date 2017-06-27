@@ -20,10 +20,10 @@
   <!--JavaScript and Style for Graph-->
   <script src="DiscGolfScoringAppUtil.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
-<title>Disc Golf Scoring App</title>
+<title>Player Dashboard</title>
 </head>
 <body>
-//navigation menu
+<!-- navigation menu -->
 <nav role="navigation" class="navbar navbar-inverse navbar-static-top">
 <div class="navbar-header">
 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -42,6 +42,9 @@
 </ul>
 </div>
 </nav>
+
+<h1>Player Dashboard</h1>
+<p> This are list of scores for the player that just added scores to web app.</p>
 
 </body>
 </html>
