@@ -50,8 +50,6 @@ function get_player_data_from_db(playername) {
 
 
 function show_recent_scores() {
-    var table = document.getElementById("recent_scores").getElementsByTagName('tbody')[0];
-
     var player = get_player_data_from_db('cruoti@gmail.com');
 
     var playerRoundCount = Object.keys(player).length;
@@ -64,6 +62,8 @@ function show_recent_scores() {
     else {
         recentSize = targetRecentCount;
     }
+
+    var table = document.getElementById("recent_scores").getElementsByTagName('tbody')[0];
 
     for (var index=0; index<recentSize; index++)
     {
@@ -97,5 +97,43 @@ function show_recent_scores() {
 }
 
 function show_all_scores_for_course() {
-    return 0;
+    var player = get_player_data_from_db('cruoti@gmail.com');
+    var course = "Wickham";
+
+    var playerRoundCount = Object.keys(player).length;
+
+    var table = document.getElementById("course_scores").getElementsByTagName('tbody')[0];
+
+    for (var index=0; index<playerRoundCount; index++)
+    {
+        round = player[Object.keys(player)[playerRoundCount-(index+1)]];
+        if (round['course'] == course) {
+            var newRow = table.insertRow(table.rows.length);
+
+            var newCell = newRow.insertCell(0);
+            var newText = document.createTextNode(round['course']);
+            newCell.appendChild(newText);
+
+            var newCell = newRow.insertCell(1);
+            var newText = document.createTextNode(round['date']);
+            newCell.appendChild(newText);
+
+            for (var i = 0; i < round['scores'].length; i++) {
+                var score = round['scores'][i];
+                var newCell = newRow.insertCell(2 + i);
+                var newText = document.createTextNode(score);
+                newCell.appendChild(newText)
+            }
+
+            var newCell = newRow.insertCell(20);
+
+            function add(a, b) {
+                return a + b;
+            }
+
+            var sum = round['scores'].reduce(add, 0);
+            var newText = document.createTextNode(sum);
+            newCell.appendChild(newText);
+        }
+    }
 }
