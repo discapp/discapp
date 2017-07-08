@@ -2,63 +2,72 @@
  * Created by cruot on 7/8/2017.
  */
 
-var playerData = new Object();
-var cruoti = new Object();
+var cruoti = {
+    0: {
+        'date': '6/3/2017',
+        'course': 'Wickham',
+        'scores': [3, 2, 3, 4, 3, 2, 3, 3, 4, 3, 2, 3, 4, 5, 4, 3, 3, 2]
+       },
+    1: {
+        'date': '6/4/2017',
+        'course': 'Wickham',
+        'scores': [2, 3, 2, 4, 5, 4, 3, 3, 3, 3, 3, 3, 3, 2, 3, 4, 3, 2]
+       },
+    2: {
+        'date': '6/5/2017',
+        'course': 'Center Springs',
+        'scores': [4, 4, 3, 4, 5, 2, 2, 3, 2, 4, 4, 3, 4, 5, 2, 2, 3, 2]
+       },
+    3: {
+        'date': '6/1/2017',
+        'course': 'Vernon',
+        'scores': [3, 3, 2, 3, 3, 3, 2, 3, 4, 3, 4, 3, 3, 3, 2, 3, 3, 2]
+       },
+    4: {
+        'date': '6/8/2017',
+        'course': 'Vernon',
+        'scores': [3, 3, 3, 3, 3, 2, 3, 4, 3, 5, 3, 3, 3, 2, 3, 3, 3, 3]
+       },
+    5: {
+        'date': '6/9/2017',
+        'course': 'Wickham',
+        'scores': [2, 3, 5, 3, 3, 4, 5, 5, 3, 3, 6, 7, 4, 5, 3, 3, 3, 4]
+       }
+};
 
-var round0 = new Object();
-round0['date'] = 'Jun 3';
-round0['course'] = 'Wickham';
-round0['scores'] = [3, 2, 3, 4, 3, 2, 3, 3, 4, 3, 2, 3, 4, 5, 4, 3, 3, 2];
-
-var round1 = new Object();
-round1['date'] = 'Jun 4';
-round1['course'] = 'Wickham';
-round1['scores'] = [2, 3, 2, 4, 5, 4, 3, 3, 3, 3, 3, 3, 3, 2, 3, 4, 3, 2];
-
-var round2 = new Object();
-round2['date'] = 'Jun 5';
-round2['course'] = 'Center Springs';
-round2['scores'] = [4, 4, 3, 4, 5, 2, 2, 3, 2, 4, 4, 3, 4, 5, 2, 2, 3, 2];
-
-var round3 = new Object();
-round3['date'] = 'Jun 1';
-round3['course'] = 'Vernon';
-round3['scores'] = [3, 3, 2, 3, 3, 3, 2, 3, 4, 3, 4, 3, 3, 3, 2, 3, 3, 2];
-
-var round4 = new Object();
-round4['date'] = 'Jun 8';
-round4['course'] = 'Vernon';
-round4['scores'] = [3, 3, 3, 3, 3, 2, 3, 4, 3, 5, 3, 3, 3, 2, 3, 3, 3, 3];
-
-var round5 = new Object();
-round5['date'] = 'Jun 9';
-round5['course'] = 'Wickham';
-round5['scores'] = [2, 3, 5, 3, 3, 4, 5, 5, 3, 3, 6, 7, 4, 5, 3, 3, 3, 4];
+var playerData = {
+    'cruoti@gmail.com': cruoti
+};
 
 
-cruoti['0'] = round0;
-cruoti['1'] = round1;
-cruoti['2'] = round2;
-cruoti['3'] = round3;
-cruoti['4'] = round4;
-cruoti['5'] = round5;
+function get_player_data_from_db(playername) {
+    /*
+    TODO: Replace with DB calls
+    Return hash like `var cruoti` is setup above
+     */
+    return playerData[playername];
+}
 
-playerData['cruoti@gmail.com'] = cruoti;
 
 function show_recent_scores() {
     var table = document.getElementById("recent_scores").getElementsByTagName('tbody')[0];
 
+    var player = get_player_data_from_db('cruoti@gmail.com');
+
+    var playerRoundCount = Object.keys(player).length;
+    var targetRecentCount = 5;
+
     var recentSize;
-    if (Object.keys(cruoti).length < 5){
-        recentSize = Object.keys(cruoti).length;
+    if (playerRoundCount < targetRecentCount){
+        recentSize = playerRoundCount;
     }
     else {
-        recentSize = 5;
+        recentSize = targetRecentCount;
     }
 
     for (var index=0; index<recentSize; index++)
     {
-        round = cruoti[Object.keys(cruoti)[index]];
+        round = player[Object.keys(player)[playerRoundCount-(index+1)]];
 
         var newRow = table.insertRow(table.rows.length);
 
@@ -85,8 +94,4 @@ function show_recent_scores() {
         var newText = document.createTextNode(sum);
         newCell.appendChild(newText);
     }
-
-
-
-
 }
