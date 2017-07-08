@@ -95,3 +95,7 @@ function show_recent_scores() {
         newCell.appendChild(newText);
     }
 }
+
+function show_all_scores_for_course() {
+    return 0;
+}
