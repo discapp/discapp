@@ -69,30 +69,7 @@ function show_recent_scores() {
     {
         round = player[Object.keys(player)[playerRoundCount-(index+1)]];
 
-        var newRow = table.insertRow(table.rows.length);
-
-        var newCell = newRow.insertCell(0);
-        var newText = document.createTextNode(round['course']);
-        newCell.appendChild(newText);
-
-        var newCell = newRow.insertCell(1);
-        var newText = document.createTextNode(round['date']);
-        newCell.appendChild(newText);
-
-        for (var i=0; i<round['scores'].length; i++) {
-            var score = round['scores'][i];
-            var newCell = newRow.insertCell(2+i);
-            var newText = document.createTextNode(score);
-            newCell.appendChild(newText)
-        }
-
-        var newCell = newRow.insertCell(20);
-        function add(a, b) {
-            return a + b;
-        }
-        var sum = round['scores'].reduce(add, 0);
-        var newText = document.createTextNode(sum);
-        newCell.appendChild(newText);
+        add_round_as_row_to_table(table, round);
     }
 }
 
@@ -108,32 +85,37 @@ function show_all_scores_for_course() {
     {
         round = player[Object.keys(player)[playerRoundCount-(index+1)]];
         if (round['course'] == course) {
-            var newRow = table.insertRow(table.rows.length);
-
-            var newCell = newRow.insertCell(0);
-            var newText = document.createTextNode(round['course']);
-            newCell.appendChild(newText);
-
-            var newCell = newRow.insertCell(1);
-            var newText = document.createTextNode(round['date']);
-            newCell.appendChild(newText);
-
-            for (var i = 0; i < round['scores'].length; i++) {
-                var score = round['scores'][i];
-                var newCell = newRow.insertCell(2 + i);
-                var newText = document.createTextNode(score);
-                newCell.appendChild(newText)
-            }
-
-            var newCell = newRow.insertCell(20);
-
-            function add(a, b) {
-                return a + b;
-            }
-
-            var sum = round['scores'].reduce(add, 0);
-            var newText = document.createTextNode(sum);
-            newCell.appendChild(newText);
+            add_round_as_row_to_table(table, round);
         }
     }
+}
+
+
+function add_round_as_row_to_table(table, round) {
+    var newRow = table.insertRow(table.rows.length);
+
+    var newCell = newRow.insertCell(0);
+    var newText = document.createTextNode(round['course']);
+    newCell.appendChild(newText);
+
+    var newCell = newRow.insertCell(1);
+    var newText = document.createTextNode(round['date']);
+    newCell.appendChild(newText);
+
+    for (var i = 0; i < round['scores'].length; i++) {
+        var score = round['scores'][i];
+        var newCell = newRow.insertCell(2 + i);
+        var newText = document.createTextNode(score);
+        newCell.appendChild(newText)
+    }
+
+    var newCell = newRow.insertCell(20);
+
+    function add(a, b) {
+        return a + b;
+    }
+
+    var sum = round['scores'].reduce(add, 0);
+    var newText = document.createTextNode(sum);
+    newCell.appendChild(newText);
 }
