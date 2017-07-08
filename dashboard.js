@@ -119,3 +119,40 @@ function add_round_as_row_to_table(table, round) {
     var newText = document.createTextNode(sum);
     newCell.appendChild(newText);
 }
+
+
+function get_courses_played() {
+    var player = get_player_data_from_db('cruoti@gmail.com');
+    var playerRoundCount = Object.keys(player).length;
+
+    var courses_played = [];
+
+    for (var index=0; index<playerRoundCount; index++)
+    {
+        round = player[Object.keys(player)[playerRoundCount-(index+1)]];
+
+        if (! courses_played.includes(round['course'])) {
+            courses_played.push(round['course']);
+        }
+    }
+
+    return courses_played;
+}
+
+
+function create_course_comboBox_options() {
+    var selectableCourses = get_courses_played();
+
+    var combo = document.getElementById("combo");
+    for (var i = 0; i < selectableCourses.length; i++) {
+        var course = selectableCourses[i];
+        var option = document.createElement("option");
+        option.text = course;
+        option.value = course;
+        try {
+            combo.add(option, null); //Standard
+        }catch(error) {
+            combo.add(option); // IE only
+        }
+    }
+}
