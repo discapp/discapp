@@ -5,9 +5,7 @@
 <!--[if 1t IE 9]>
 <script src=files/html5shiv.js"></script>
 <![endif]-->
-<link rel = "stylesheet"
-      type = "text/css"
-      href = "DiscGolfScoringApp.css" />
+<link rel = "stylesheet" type = "text/css" href = "DiscGolfScoringApp.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <!-- Latest compiled and minified CSS -->
@@ -24,6 +22,16 @@
     $(document).ready(function() {
         $("#datepicker").datepicker();
     });
+
+    function number(){
+        var arr = document.getElementsByName('hole');
+        var tot=0;
+        for(var i=0;i<arr.length;i++){
+            if(parseInt(arr[i].value))
+                tot += parseInt(arr[i].value);
+        }
+        document.getElementById('total').value = tot;
+    }
 </script>
 <head>
     <title>Disc Golf Scoring App - Add Score</title>
@@ -63,26 +71,27 @@
         </div>
         <!-- Table -->
         <div class="table-responsive">
-                    Hole 1 <input type="number" name="hole" id="hole1" min="1" max="100"><br>
-                    Hole 2 <input type="number" name="hole" id="hole2" min="1" max="100"><br>
-                    Hole 3 <input type="number" name="hole" id="hole3" min="1" max="100"><br>
-                    Hole 4 <input type="number" name="hole" id="hole4" min="1" max="100"><br>
-                    Hole 5 <input type="number" name="hole" id="hole5" min="1" max="100"><br>
-                    Hole 6 <input type="number" name="hole" id="hole6" min="1" max="100"><br>
-                    Hole 7 <input type="number" name="hole" id="hole7" min="1" max="100"><br>
-                    Hole 8 <input type="number" name="hole" id="hole8" min="1" max="100"><br>
-                    Hole 9 <input type="number" name="hole" id="hole9" min="1" max="100"><br>
-                    Hole 10 <input type="number" name="hole" id="hole10" min="1" max="100"><br>
-                    Hole 11 <input type="number" name="hole" id="hole11" min="1" max="100"><br>
-                    Hole 12 <input type="number" name="hole" id="hole12" min="1" max="100"><br>
-                    Hole 13 <input type="number" name="hole" id="hole13" min="1" max="100"><br>
-                    Hole 14 <input type="number" name="hole" id="hole14" min="1" max="100"><br>
-                    Hole 15 <input type="number" name="hole" id="hole15" min="1" max="100"><br>
-                    Hole 16 <input type="number" name="hole" id="hole16" min="1" max="100"><br>
-                    Hole 17 <input type="number" name="hole" id="hole17" min="1" max="100"><br>
-                    Hole 18 <input type="number" name="hole" id="hole18" min="1" max="100"><br>
-                    Total: <input type="text" name="total" id="total"/>
-
+            <form>
+                    Hole 1 <input type="number" onblur="number()" name="hole" id="hole1" value="0" min="1" max="100"><br>
+                    Hole 2 <input type="number" onblur="number()" name="hole" id="hole2" value="0" min="1" max="100"><br>
+                    Hole 3 <input type="number" onblur="number()" name="hole" id="hole3" value="0" min="1" max="100"><br>
+                    Hole 4 <input type="number" onblur="number()" name="hole" id="hole4" value="0" min="1" max="100"><br>
+                    Hole 5 <input type="number" onblur="number()" name="hole" id="hole5" value="0" min="1" max="100"><br>
+                    Hole 6 <input type="number" onblur="number()" name="hole" id="hole6" value="0" min="1" max="100"><br>
+                    Hole 7 <input type="number" onblur="number()" name="hole" id="hole7" value="0" min="1" max="100"><br>
+                    Hole 8 <input type="number" onblur="number()" name="hole" id="hole8" value="0" min="1" max="100"><br>
+                    Hole 9 <input type="number" onblur="number()" name="hole" id="hole9" value="0" min="1" max="100"><br>
+                    Hole 10 <input type="number" onblur="number()" name="hole" id="hole10" value="0" min="1" max="100"><br>
+                    Hole 11 <input type="number" onblur="number()" name="hole" id="hole11" value="0" min="1" max="100"><br>
+                    Hole 12 <input type="number" onblur="number()" name="hole" id="hole12" value="0" min="1" max="100"><br>
+                    Hole 13 <input type="number" onblur="number()" name="hole" id="hole13" value="0" min="1" max="100"><br>
+                    Hole 14 <input type="number" onblur="number()" name="hole" id="hole14" value="0" min="1" max="100"><br>
+                    Hole 15 <input type="number" onblur="number()" name="hole" id="hole15" value="0" min="1" max="100"><br>
+                    Hole 16 <input type="number" onblur="number()" name="hole" id="hole16" value="0" min="1" max="100"><br>
+                    Hole 17 <input type="number" onblur="number()" name="hole" id="hole17" value="0" min="1" max="100"><br>
+                    Hole 18 <input type="number" onblur="number()" name="hole" id="hole18" value="0" min="1" max="100"><br>
+                    Total: <input type="text" name="total" id="total" value="0"/>
+                </form>
      <!--           <tbody>
                 <tr>
                     <td>Test Data #1</td>
