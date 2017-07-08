@@ -17,6 +17,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!--JavaScript and Style for Graph-->
     <script src="DiscGolfScoringAppUtil.js"></script>
+    <script src="dashboard.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
 
     <title>Disc Golf Scoring App</title>
@@ -53,7 +54,7 @@
         <div class="panel-heading">Recent Scores</div>
         <!-- Table -->
         <div class="table-responsive">
-            <table class="table table-bordered">
+            <table id="recent_scores" class="table table-bordered">
                 <thead>
                 <tr>
                     <th>Course</th>
@@ -80,123 +81,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>Test Data #1</td>
-                    <td>6/15/2017</td>
-                    <td>1</td>
-                    <td>35</td>
-                    <td>2</td>
-                    <td>5</td>
-                    <td>1</td>
-                    <td>6</td>
-                    <td>3</td>
-                    <td>35</td>
-                    <td>9</td>
-                    <td>4</td>
-                    <td>1</td>
-                    <td>8</td>
-                    <td>2</td>
-                    <td>35</td>
-                    <td>9</td>
-                    <td>8</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>23</td>
-                </tr>
-                <tr>
-                    <td>Test Data #2</td>
-                    <td>6/15/2017</td>
-                    <td>1</td>
-                    <td>35</td>
-                    <td>2</td>
-                    <td>5</td>
-                    <td>1</td>
-                    <td>6</td>
-                    <td>3</td>
-                    <td>35</td>
-                    <td>9</td>
-                    <td>4</td>
-                    <td>1</td>
-                    <td>8</td>
-                    <td>2</td>
-                    <td>35</td>
-                    <td>9</td>
-                    <td>8</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>23</td>
-                </tr>
-                <tr>
-                    <td>Test Data #3</td>
-                    <td>6/15/2017</td>
-                    <td>1</td>
-                    <td>35</td>
-                    <td>2</td>
-                    <td>5</td>
-                    <td>1</td>
-                    <td>6</td>
-                    <td>3</td>
-                    <td>35</td>
-                    <td>9</td>
-                    <td>4</td>
-                    <td>1</td>
-                    <td>8</td>
-                    <td>2</td>
-                    <td>35</td>
-                    <td>9</td>
-                    <td>8</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>23</td>
-                </tr>
-                <tr>
-                    <td>Test Data #4</td>
-                    <td>6/15/2017</td>
-                    <td>1</td>
-                    <td>35</td>
-                    <td>2</td>
-                    <td>5</td>
-                    <td>1</td>
-                    <td>6</td>
-                    <td>3</td>
-                    <td>35</td>
-                    <td>9</td>
-                    <td>4</td>
-                    <td>1</td>
-                    <td>8</td>
-                    <td>2</td>
-                    <td>35</td>
-                    <td>9</td>
-                    <td>8</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>23</td>
-                </tr>
-                <tr>
-                    <td>Test Data #5</td>
-                    <td>6/15/2017</td>
-                    <td>1</td>
-                    <td>35</td>
-                    <td>2</td>
-                    <td>5</td>
-                    <td>1</td>
-                    <td>6</td>
-                    <td>3</td>
-                    <td>35</td>
-                    <td>9</td>
-                    <td>4</td>
-                    <td>1</td>
-                    <td>8</td>
-                    <td>2</td>
-                    <td>35</td>
-                    <td>9</td>
-                    <td>8</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>23</td>
-                </tr>
+                <!--body defined by javascript show_recent_scores() below-->
                 </tbody>
             </table>
+            <script>show_recent_scores();</script>
         </div>
     </div>
     <br></br>
