@@ -96,43 +96,32 @@
                 <script>create_course_comboBox_options();</script>
             </div>
         </div>
+
         <div style="width:100%;">
             <canvas id="canvas"></canvas>
         </div>
+
         <br>
         <br>
+
         <!--<button id="randomizeData">Randomize Data</button>
         <button id="addDataset">Add Dataset</button>
         <button id="removeDataset">Remove Dataset</button>
         <button id="addData">Add Data</button>
         <button id="removeData">Remove Data</button>-->
         <script>
+            var dates_and_scores = get_dates_and_scores_for_course_and_player();
+
             var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             var config = {
                 type: 'line',
                 data: {
-                    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                    labels: dates_and_scores[0],
                     datasets: [{
                         label: "Course",
                         backgroundColor: window.chartColors.green,
                         borderColor: window.chartColors.green,
-                        data: [
-                            <!--Example of how data will be set up. We will need to sync(Replace the randomScalingFactor methods) a database up to this to populate the actual graph-->
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor()
-                        ],
+                        data: dates_and_scores[1],
                         fill: false,
                     },]
                 },

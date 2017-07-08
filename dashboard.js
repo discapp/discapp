@@ -35,11 +35,17 @@ var cruoti = {
        }
 };
 
+
 var playerData = {
     'cruoti@gmail.com': cruoti
 };
 
 
+/*
+ ---------------------------------------
+ Functions to get player data
+ ---------------------------------------
+ */
 function get_player_data_from_db(playername) {
     /*
     TODO: Replace with DB calls
@@ -49,6 +55,52 @@ function get_player_data_from_db(playername) {
 }
 
 
+function get_courses_played() {
+    var player = get_player_data_from_db('cruoti@gmail.com');
+    var playerRoundCount = Object.keys(player).length;
+
+    var courses_played = [];
+
+    for (var index=0; index<playerRoundCount; index++)
+    {
+        round = player[Object.keys(player)[playerRoundCount-(index+1)]];
+
+        if (! courses_played.includes(round['course'])) {
+            courses_played.push(round['course']);
+        }
+    }
+
+    return courses_played;
+}
+
+
+function get_dates_and_scores_for_course_and_player() {
+    var player = get_player_data_from_db('cruoti@gmail.com');
+    var course = "Wickham";
+    var playerRoundCount = Object.keys(player).length;
+
+    var dates = [];
+    var totalScores = [];
+
+    for (var i=0; i<playerRoundCount; i++) {
+        round = player[Object.keys(player)[i]];
+
+        if (round['course'] == course) {
+            dates.push(round['date']);
+            totalScores.push(round['scores'].reduce(add, 0));
+        }
+    }
+
+    var datesAndScores = [dates, totalScores];
+    return datesAndScores;
+}
+
+
+/*
+ ---------------------------------------
+ Functions to manipulate HTML page
+ ---------------------------------------
+ */
 function show_recent_scores() {
     var player = get_player_data_from_db('cruoti@gmail.com');
 
@@ -72,6 +124,7 @@ function show_recent_scores() {
         add_round_as_row_to_table(table, round);
     }
 }
+
 
 function show_all_scores_for_course() {
     var player = get_player_data_from_db('cruoti@gmail.com');
@@ -121,25 +174,6 @@ function add_round_as_row_to_table(table, round) {
 }
 
 
-function get_courses_played() {
-    var player = get_player_data_from_db('cruoti@gmail.com');
-    var playerRoundCount = Object.keys(player).length;
-
-    var courses_played = [];
-
-    for (var index=0; index<playerRoundCount; index++)
-    {
-        round = player[Object.keys(player)[playerRoundCount-(index+1)]];
-
-        if (! courses_played.includes(round['course'])) {
-            courses_played.push(round['course']);
-        }
-    }
-
-    return courses_played;
-}
-
-
 function create_course_comboBox_options() {
     var selectableCourses = get_courses_played();
 
@@ -155,4 +189,14 @@ function create_course_comboBox_options() {
             combo.add(option); // IE only
         }
     }
+}
+
+
+/*
+---------------------------------------
+Utility Functions
+---------------------------------------
+ */
+function add(a, b) {
+    return a + b;
 }
