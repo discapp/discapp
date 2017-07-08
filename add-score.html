@@ -61,17 +61,16 @@
         <!-- Default panel contents -->
         <div class="panel-heading">Add New Scores</div>
         <div class="panel-body">
+            <!-- NEED TO ADD ACTION BELLOW TO MAKE THIS FORM SEND THE DATA TO DATABASE -->
+            <form action="where-this-going" method="post">
             <div class="course">
           Course <input type="text">
             </div>
             <br></br>
-            <form>Date:
-                <input id="datepicker" />
-            </form>
+            Date: <input id="datepicker" />
         </div>
         <!-- Table -->
         <div class="table-responsive">
-            <form>
                     Hole 1 <input type="number" onblur="number()" name="hole" id="hole1" value="0" min="1" max="100"><br>
                     Hole 2 <input type="number" onblur="number()" name="hole" id="hole2" value="0" min="1" max="100"><br>
                     Hole 3 <input type="number" onblur="number()" name="hole" id="hole3" value="0" min="1" max="100"><br>
@@ -91,7 +90,7 @@
                     Hole 17 <input type="number" onblur="number()" name="hole" id="hole17" value="0" min="1" max="100"><br>
                     Hole 18 <input type="number" onblur="number()" name="hole" id="hole18" value="0" min="1" max="100"><br>
                     Total: <input type="text" name="total" id="total" value="0"/>
-                </form>
+
      <!--           <tbody>
                 <tr>
                     <td>Test Data #1</td>
@@ -213,7 +212,8 @@
         </div>
     </div>
     <br></br>
-    <div class="wrapper"><button type="button" class="btn btn-default">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="button" class="btn btn-default">Cancel</button></div>
+    <div class="wrapper"><input type="submit" value="Submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="reset" value="Clear"></div>
+    </form>
 </section>
 </body>
 </html>
