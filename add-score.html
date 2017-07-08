@@ -33,6 +33,8 @@
         document.getElementById('total').value = tot;
     }
 </script>
+<script src="course_data.js"></script>
+
 <head>
     <title>Disc Golf Scoring App - Add Score</title>
 </head>
@@ -64,7 +66,15 @@
             <!-- NEED TO ADD ACTION BELLOW TO MAKE THIS FORM SEND THE DATA TO DATABASE -->
             <form action="where-this-going" method="post">
             <div class="course">
-          Course <input type="text">
+                Course
+                <select name="combo" id="combo"></select>
+                    <script>createCourseComboBoxOptions();</script>
+                    <!--<option value="volvo">Volvo</option>-->
+                    <!--<option value="saab">Saab</option>-->
+                    <!--<option value="fiat">Fiat</option>-->
+                    <!--<option value="audi">Audi</option>-->
+
+
             </div>
             <br></br>
             Date: <input id="datepicker" />
