@@ -74,9 +74,9 @@ function get_courses_played() {
 }
 
 
-function get_dates_and_scores_for_course_and_player() {
+function get_dates_and_scores_for_course_and_player(course) {
     var player = get_player_data_from_db('cruoti@gmail.com');
-    var course = "Wickham";
+    // var course = "Wickham";
     var playerRoundCount = Object.keys(player).length;
 
     var dates = [];
@@ -189,6 +189,69 @@ function create_course_comboBox_options() {
             combo.add(option); // IE only
         }
     }
+}
+
+
+var chartColors = {
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    blue: 'rgb(54, 162, 235)',
+    purple: 'rgb(153, 102, 255)',
+    grey: 'rgb(201, 203, 207)'
+};
+
+function setup_chart_config(course) {
+    var dates_and_scores = get_dates_and_scores_for_course_and_player(course);
+
+    var config = {
+        type: 'line',
+        data: {
+            labels: dates_and_scores[0],
+            datasets: [{
+                label: "Course",
+                backgroundColor: chartColors['green'],
+                borderColor: chartColors['green'],
+                data: dates_and_scores[1],
+                fill: false,
+            },]
+        },
+        options: {
+            responsive: true,
+            title:{
+                display:true,
+                text: 'Scores'
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
+            scales: {
+                xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Date'
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Score'
+                    },
+                    ticks: {stepSize: 1}
+                }]
+            }
+        }
+    };
+
+    return config;
 }
 
 
