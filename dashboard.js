@@ -126,9 +126,14 @@ function show_recent_scores() {
 }
 
 
-function show_all_scores_for_course() {
+function show_all_scores_for_course(course) {
     var player = get_player_data_from_db('cruoti@gmail.com');
-    var course = "Wickham";
+    if (course == null)
+    {
+        course = "Wickham";
+    }
+    // var course = "Wickham";
+    window.alert(course);
 
     var playerRoundCount = Object.keys(player).length;
 

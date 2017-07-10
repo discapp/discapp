@@ -80,6 +80,7 @@
         <div class="panel-body">
             <div class="dropdown">
                 <select name="combo" id="combo"></select>
+                        <!--onchange="onCourseSelect(document.getElementById('combo').value);"></select>-->
                 <script>create_course_comboBox_options();</script>
             </div>
         </div>
@@ -87,8 +88,31 @@
         <div style="width:100%;">
             <canvas id="canvas"></canvas>
             <script>
+//                function onCourseSelect() {
+//                    var courseDropdown = document.getElementById('combo');
+//
+////                courseDropdown[1].selected = true;
+//                    var selected_course = courseDropdown.options[1].text;
+//
+//                    var config = setup_chart_config(selected_course);
+//                    new Chart(document.getElementById('canvas').getContext('2d'), config);
+//                }
                 var courseDropdown = document.getElementById('combo');
-                
+                courseDropdown.addEventListener('change', function () {
+                    var courseDropdown = document.getElementById('combo');
+//                    window.alert(courseDropdown);
+                    var selected_course = courseDropdown.options[courseDropdown.selectedIndex].text;
+                    localStorage.setItem('var1', selected_course);
+//                    document.write(localStorage.getItem('var1'))
+
+                    var courseDropdown = document.getElementById('combo');
+                    var config = setup_chart_config(selected_course);
+                    window.alert(courseDropdown);
+                    new Chart(document.getElementById('canvas').getContext('2d'), config);
+
+                    show_all_scores_for_course(selected_course);
+                });
+
 //                courseDropdown[1].selected = true;
                 var selected_course = courseDropdown.options[courseDropdown.selectedIndex].text;
 
@@ -126,7 +150,7 @@
                     <!--body defined by javascript show_all_scores_for_course() below-->
                 </tbody>
             </table>
-            <script>show_all_scores_for_course();</script>
+            <script>show_all_scores_for_course(null);</script>
         </div>
     </div>
 </section>
