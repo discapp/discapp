@@ -27,3 +27,56 @@ function createCourseComboBoxOptions() {
         }
     }
 }
+
+
+function submit_scores() {
+    var username = sessionStorage.getItem('username');
+    var courseDropdown = document.getElementById('combo');
+    var selected_course = courseDropdown.options[courseDropdown.selectedIndex].text;
+
+    var dateField = document.getElementById('datepicker');
+    var date = dateField.value;
+
+    var scores = [];
+    for (var i=1; i<=18; i++)
+    {
+        scores.push(parseInt(document.getElementById('hole' + i).value));
+    }
+
+    submitScoresToDB(username, selected_course, date, scores);
+}
+
+
+function submitScoresToDB(username, course, date, scores)
+{
+    var playerData = get_playerData_from_db();
+    var player = playerData[username];
+    var playerRoundCount = Object.keys(player).length;
+
+    var maxRoundID = 0;
+    for (var i=0; i<playerRoundCount; i++) {
+        var roundID = Object.keys(player)[i];
+        if (roundID > maxRoundID) {
+            maxRoundID = roundID;
+        }
+    }
+
+    var newRoundID = parseInt(maxRoundID) + 1;
+
+    playerData[username][newRoundID] = {
+        'date': date,
+        'course': course,
+        'scores': scores
+    };
+
+    sessionStorage.setItem('playerData', JSON.stringify(playerData));
+}
+
+function get_playerData_from_db() {
+    /*
+     TODO: Replace with DB calls
+     Return hash like `var cruoti` is setup above
+     */
+    var playerData = JSON.parse(sessionStorage.getItem('playerData'));
+    return playerData;
+}

@@ -4,32 +4,32 @@
 
 var cruoti = {
     0: {
-        'date': '6/3/2017',
+        'date': '06/03/2017',
         'course': 'Wickham',
         'scores': [3, 2, 3, 4, 3, 2, 3, 3, 4, 3, 2, 3, 4, 5, 4, 3, 3, 2]
        },
     1: {
-        'date': '6/4/2017',
+        'date': '06/04/2017',
         'course': 'Wickham',
         'scores': [2, 3, 2, 4, 5, 4, 3, 3, 3, 3, 3, 3, 3, 2, 3, 4, 3, 2]
        },
     2: {
-        'date': '6/5/2017',
+        'date': '06/05/2017',
         'course': 'Center Springs',
         'scores': [4, 4, 3, 4, 5, 2, 2, 3, 2, 4, 4, 3, 4, 5, 2, 2, 3, 2]
        },
     3: {
-        'date': '6/1/2017',
+        'date': '06/01/2017',
         'course': 'Vernon',
         'scores': [3, 3, 2, 3, 3, 3, 2, 3, 4, 3, 4, 3, 3, 3, 2, 3, 3, 2]
        },
     4: {
-        'date': '6/8/2017',
+        'date': '06/08/2017',
         'course': 'Vernon',
         'scores': [3, 3, 3, 3, 3, 2, 3, 4, 3, 5, 3, 3, 3, 2, 3, 3, 3, 3]
        },
     5: {
-        'date': '6/9/2017',
+        'date': '06/09/2017',
         'course': 'Wickham',
         'scores': [2, 3, 5, 3, 3, 4, 5, 5, 3, 3, 6, 7, 4, 5, 3, 3, 3, 4]
        }
@@ -41,6 +41,14 @@ var playerData = {
 };
 
 
+if (sessionStorage.getItem('playerData') == null) {
+    sessionStorage.setItem('playerData', JSON.stringify(playerData));
+}
+
+if (sessionStorage.getItem('username') == null) {
+    sessionStorage.setItem('username', 'cruoti@gmail.com');
+}
+
 /*
  ---------------------------------------
  Functions to get player data
@@ -51,12 +59,14 @@ function get_player_data_from_db(playername) {
     TODO: Replace with DB calls
     Return hash like `var cruoti` is setup above
      */
+    var playerData = JSON.parse(sessionStorage.getItem('playerData'));
     return playerData[playername];
 }
 
 
 function get_courses_played() {
-    var player = get_player_data_from_db('cruoti@gmail.com');
+    var username = sessionStorage.getItem('username');
+    var player = get_player_data_from_db(username);
     var playerRoundCount = Object.keys(player).length;
 
     var courses_played = [];
@@ -75,8 +85,8 @@ function get_courses_played() {
 
 
 function get_dates_and_scores_for_course_and_player(course) {
-    var player = get_player_data_from_db('cruoti@gmail.com');
-    // var course = "Wickham";
+    var username = sessionStorage.getItem('username');
+    var player = get_player_data_from_db(username);
     var playerRoundCount = Object.keys(player).length;
 
     var dates = [];
@@ -102,7 +112,8 @@ function get_dates_and_scores_for_course_and_player(course) {
  ---------------------------------------
  */
 function show_recent_scores() {
-    var player = get_player_data_from_db('cruoti@gmail.com');
+    var username = sessionStorage.getItem('username');
+    var player = get_player_data_from_db(username);
 
     var playerRoundCount = Object.keys(player).length;
     var targetRecentCount = 5;
@@ -127,7 +138,8 @@ function show_recent_scores() {
 
 
 function show_all_scores_for_course(course) {
-    var player = get_player_data_from_db('cruoti@gmail.com');
+    var username = sessionStorage.getItem('username');
+    var player = get_player_data_from_db(username);
     if (course == null)
     {
         course = get_courses_played()[0];
