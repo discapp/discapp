@@ -67,7 +67,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <!--body defined by javascript show_recent_scores() below-->
+                    <!--body defined by javascript show_recent_scores() below-->
                 </tbody>
             </table>
             <script>show_recent_scores();</script>
@@ -80,72 +80,53 @@
         <div class="panel-body">
             <div class="dropdown">
                 <select name="combo" id="combo"></select>
+                        <!--onchange="onCourseSelect(document.getElementById('combo').value);"></select>-->
                 <script>create_course_comboBox_options();</script>
             </div>
         </div>
 
-        <div style="width:100%;">
+        <div id='canvas_div' style="width:100%;">
             <canvas id="canvas"></canvas>
         </div>
-
-        <br>
-        <br>
-
         <script>
-            var dates_and_scores = get_dates_and_scores_for_course_and_player();
+            var courseDropdown = document.getElementById('combo');
+            courseDropdown.addEventListener('change', function () {
+                var courseDropdown = document.getElementById('combo');
+                var selected_course = courseDropdown.options[courseDropdown.selectedIndex].text;
+                localStorage.setItem('var1', selected_course);
 
-            var config = {
-                type: 'line',
-                data: {
-                    labels: dates_and_scores[0],
-                    datasets: [{
-                        label: "Course",
-                        backgroundColor: window.chartColors.green,
-                        borderColor: window.chartColors.green,
-                        data: dates_and_scores[1],
-                        fill: false,
-                    },]
-                },
-                options: {
-                    responsive: true,
-                    title:{
-                        display:true,
-                        text: 'Scores'
-                    },
-                    tooltips: {
-                        mode: 'index',
-                        intersect: false,
-                    },
-                    hover: {
-                        mode: 'nearest',
-                        intersect: true
-                    },
-                    scales: {
-                        xAxes: [{
-                            display: true,
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Date'
-                            }
-                        }],
-                        yAxes: [{
-                            display: true,
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Score'
-                            },
-                            ticks: {stepSize: 1}
-                        }]
-                    }
-                }
-            };
+                var courseDropdown = document.getElementById('combo');
+                var config = setup_chart_config(selected_course);
 
-            window.onload = function() {
-                var ctx = document.getElementById("canvas").getContext("2d");
-                window.myLine = new Chart(ctx, config);
-            };
+                // clear old canvas
+                var canvasDiv = document.getElementById('canvas_div');
+                canvasDiv.innerHTML = "<canvas id='canvas'></canvas>";
 
+                // write new chart
+                var canvas = document.getElementById('canvas');
+                var context = canvas.getContext('2d');
+                new Chart(context, config);
+
+                // clear old table body
+                var table = document.getElementById('course_scores');
+                table.innerHTML = "<tbody></tbody>";
+
+                // create new table body
+                show_all_scores_for_course(selected_course);
+            });
+
+            //                courseDropdown[1].selected = true;
+            var selected_course = courseDropdown.options[courseDropdown.selectedIndex].text;
+
+            var config = setup_chart_config(selected_course);
+            new Chart(document.getElementById('canvas').getContext('2d'), config);
         </script>
+
+
+
+        <br>
+        <br>
+
     </div>
 
     <br></br>
@@ -169,10 +150,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                <!--body defined by javascript show_all_scores_for_course() below-->
+                    <!--body defined by javascript show_all_scores_for_course() below-->
                 </tbody>
             </table>
-            <script>show_all_scores_for_course();</script>
+            <script>show_all_scores_for_course(null);</script>
         </div>
     </div>
 </section>
