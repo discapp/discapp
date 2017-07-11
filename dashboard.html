@@ -110,6 +110,9 @@
                     window.alert(courseDropdown);
                     new Chart(document.getElementById('canvas').getContext('2d'), config);
 
+                    var table = document.getElementById('course_scores');
+                    table.innerHTML = "<tbody></tbody>";
+//                    table.createElement('tbody');
                     show_all_scores_for_course(selected_course);
                 });
 
