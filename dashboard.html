@@ -100,19 +100,15 @@
                 var courseDropdown = document.getElementById('combo');
                 courseDropdown.addEventListener('change', function () {
                     var courseDropdown = document.getElementById('combo');
-//                    window.alert(courseDropdown);
                     var selected_course = courseDropdown.options[courseDropdown.selectedIndex].text;
                     localStorage.setItem('var1', selected_course);
-//                    document.write(localStorage.getItem('var1'))
 
                     var courseDropdown = document.getElementById('combo');
                     var config = setup_chart_config(selected_course);
-                    window.alert(courseDropdown);
                     new Chart(document.getElementById('canvas').getContext('2d'), config);
 
                     var table = document.getElementById('course_scores');
                     table.innerHTML = "<tbody></tbody>";
-//                    table.createElement('tbody');
                     show_all_scores_for_course(selected_course);
                 });
 

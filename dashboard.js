@@ -130,10 +130,8 @@ function show_all_scores_for_course(course) {
     var player = get_player_data_from_db('cruoti@gmail.com');
     if (course == null)
     {
-        course = "Wickham";
+        course = get_courses_played()[0];
     }
-    // var course = "Wickham";
-    window.alert(course);
 
     var playerRoundCount = Object.keys(player).length;
 
