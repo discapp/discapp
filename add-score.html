@@ -59,8 +59,35 @@
     </nav>
 
     <section>
+        <script>
+            function submit_scores2() {
+                window.alert(6);
+                var courseDropdown = document.getElementById('combo');
+                var selected_course = courseDropdown.options[courseDropdown.selectedIndex].text;
+                window.alert(selected_course);
+
+                var dateField = document.getElementById('datepicker');
+                var date = dateField.value;
+                window.alert(date);
+
+                var scores = [];
+                for (var i=1; i<=3; i++)
+                {
+                    scores.push(document.getElementById('hole' + i).value);
+                }
+
+                for (var i=0; i<scores.length; i++) {
+                    window.alert(scores[i]);
+//                    document.write('<p>' + scores[i] + '</p>');
+                }
+
+                submitScoresToDB('cruoti@gmail.com', selected_course, date, scores);
+            }
+        </script>
+
         <!-- NEED TO ADD ACTION BELLOW TO MAKE THIS FORM SEND THE DATA TO DATABASE -->
-        <form action="where-this-going" method="post">
+        <form action="dashboard.html">
+            <!--action="where-this-going" method="post">-->
             <div class="panel panel-default">
                 <!-- Default panel contents -->
                 <div class="panel-heading">Add New Scores</div>
@@ -98,7 +125,13 @@
                 </div>
             </div>
             <br></br>
-            <div class="wrapper"><input type="submit" value="Submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="reset" value="Clear"></div>
+            <div class="wrapper">
+                <input type="submit" value="Submit" onclick="submit_scores()">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="reset" value="Clear">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!--<input type="submit" value="Cancel">-->
+            </div>
         </form>
     </section>
 </body>
