@@ -85,40 +85,44 @@
             </div>
         </div>
 
-        <div style="width:100%;">
+        <div id='canvas_div' style="width:100%;">
             <canvas id="canvas"></canvas>
-            <script>
-//                function onCourseSelect() {
-//                    var courseDropdown = document.getElementById('combo');
-//
-////                courseDropdown[1].selected = true;
-//                    var selected_course = courseDropdown.options[1].text;
-//
-//                    var config = setup_chart_config(selected_course);
-//                    new Chart(document.getElementById('canvas').getContext('2d'), config);
-//                }
-                var courseDropdown = document.getElementById('combo');
-                courseDropdown.addEventListener('change', function () {
-                    var courseDropdown = document.getElementById('combo');
-                    var selected_course = courseDropdown.options[courseDropdown.selectedIndex].text;
-                    localStorage.setItem('var1', selected_course);
-
-                    var courseDropdown = document.getElementById('combo');
-                    var config = setup_chart_config(selected_course);
-                    new Chart(document.getElementById('canvas').getContext('2d'), config);
-
-                    var table = document.getElementById('course_scores');
-                    table.innerHTML = "<tbody></tbody>";
-                    show_all_scores_for_course(selected_course);
-                });
-
-//                courseDropdown[1].selected = true;
-                var selected_course = courseDropdown.options[courseDropdown.selectedIndex].text;
-
-                var config = setup_chart_config(selected_course);
-                new Chart(document.getElementById('canvas').getContext('2d'), config);
-            </script>
         </div>
+        <script>
+            var courseDropdown = document.getElementById('combo');
+            courseDropdown.addEventListener('change', function () {
+                var courseDropdown = document.getElementById('combo');
+                var selected_course = courseDropdown.options[courseDropdown.selectedIndex].text;
+                localStorage.setItem('var1', selected_course);
+
+                var courseDropdown = document.getElementById('combo');
+                var config = setup_chart_config(selected_course);
+
+                // clear old canvas
+                var canvasDiv = document.getElementById('canvas_div');
+                canvasDiv.innerHTML = "<canvas id='canvas'></canvas>";
+
+                // write new chart
+                var canvas = document.getElementById('canvas');
+                var context = canvas.getContext('2d');
+                new Chart(context, config);
+
+                // clear old table body
+                var table = document.getElementById('course_scores');
+                table.innerHTML = "<tbody></tbody>";
+
+                // create new table body
+                show_all_scores_for_course(selected_course);
+            });
+
+            //                courseDropdown[1].selected = true;
+            var selected_course = courseDropdown.options[courseDropdown.selectedIndex].text;
+
+            var config = setup_chart_config(selected_course);
+            new Chart(document.getElementById('canvas').getContext('2d'), config);
+        </script>
+
+
 
         <br>
         <br>
