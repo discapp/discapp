@@ -31,25 +31,17 @@ function createCourseComboBoxOptions() {
 
 function submit_scores() {
     var username = 'cruoti@gmail.com';
-    // window.alert(7);
     var courseDropdown = document.getElementById('combo');
     var selected_course = courseDropdown.options[courseDropdown.selectedIndex].text;
-    // window.alert(selected_course);
 
     var dateField = document.getElementById('datepicker');
     var date = dateField.value;
-    // window.alert(date);
 
     var scores = [];
     for (var i=1; i<=18; i++)
     {
         scores.push(parseInt(document.getElementById('hole' + i).value));
     }
-
-//     for (var i=0; i<scores.length; i++) {
-//         window.alert(scores[i]);
-//         // document.write('<p>' + scores[i] + '</p>');
-// }
 
     submitScoresToDB(username, selected_course, date, scores);
 }
@@ -77,19 +69,7 @@ function submitScoresToDB(username, course, date, scores)
         'scores': scores
     };
 
-    window.alert(JSON.stringify(playerData));
-    window.alert(sessionStorage.getItem('playerData'));
     sessionStorage.setItem('playerData', JSON.stringify(playerData));
-    window.alert(sessionStorage.getItem('playerData'));
-    // window.alert(playerData[2]['scores']);
-    // window.alert(maxRoundID);
-    // window.alert(newRoundID);
-    //
-    // window.alert(5);
-    // window.alert(username);
-    // window.alert(course);
-    // window.alert(date);
-    // window.alert(scores);
 }
 
 function get_playerData_from_db() {

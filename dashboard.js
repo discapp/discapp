@@ -4,32 +4,32 @@
 
 var cruoti = {
     0: {
-        'date': '6/3/2017',
+        'date': '06/03/2017',
         'course': 'Wickham',
         'scores': [3, 2, 3, 4, 3, 2, 3, 3, 4, 3, 2, 3, 4, 5, 4, 3, 3, 2]
        },
     1: {
-        'date': '6/4/2017',
+        'date': '06/04/2017',
         'course': 'Wickham',
         'scores': [2, 3, 2, 4, 5, 4, 3, 3, 3, 3, 3, 3, 3, 2, 3, 4, 3, 2]
        },
     2: {
-        'date': '6/5/2017',
+        'date': '06/05/2017',
         'course': 'Center Springs',
         'scores': [4, 4, 3, 4, 5, 2, 2, 3, 2, 4, 4, 3, 4, 5, 2, 2, 3, 2]
        },
     3: {
-        'date': '6/1/2017',
+        'date': '06/01/2017',
         'course': 'Vernon',
         'scores': [3, 3, 2, 3, 3, 3, 2, 3, 4, 3, 4, 3, 3, 3, 2, 3, 3, 2]
        },
     4: {
-        'date': '6/8/2017',
+        'date': '06/08/2017',
         'course': 'Vernon',
         'scores': [3, 3, 3, 3, 3, 2, 3, 4, 3, 5, 3, 3, 3, 2, 3, 3, 3, 3]
        },
     5: {
-        'date': '6/9/2017',
+        'date': '06/09/2017',
         'course': 'Wickham',
         'scores': [2, 3, 5, 3, 3, 4, 5, 5, 3, 3, 6, 7, 4, 5, 3, 3, 3, 4]
        }
@@ -41,13 +41,9 @@ var playerData = {
 };
 
 
-window.alert(sessionStorage.getItem('playerData'));
-
 if (sessionStorage.getItem('playerData') == null) {
     sessionStorage.setItem('playerData', JSON.stringify(playerData));
 }
-
-window.alert(sessionStorage.getItem('playerData'));
 
 /*
  ---------------------------------------
