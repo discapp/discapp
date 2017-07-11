@@ -30,7 +30,7 @@ function createCourseComboBoxOptions() {
 
 
 function submit_scores() {
-    var username = 'cruoti@gmail.com';
+    var username = sessionStorage.getItem('username');
     var courseDropdown = document.getElementById('combo');
     var selected_course = courseDropdown.options[courseDropdown.selectedIndex].text;
 

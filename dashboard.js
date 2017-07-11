@@ -45,6 +45,10 @@ if (sessionStorage.getItem('playerData') == null) {
     sessionStorage.setItem('playerData', JSON.stringify(playerData));
 }
 
+if (sessionStorage.getItem('username') == null) {
+    sessionStorage.setItem('username', 'cruoti@gmail.com');
+}
+
 /*
  ---------------------------------------
  Functions to get player data
@@ -61,7 +65,8 @@ function get_player_data_from_db(playername) {
 
 
 function get_courses_played() {
-    var player = get_player_data_from_db('cruoti@gmail.com');
+    var username = sessionStorage.getItem('username');
+    var player = get_player_data_from_db(username);
     var playerRoundCount = Object.keys(player).length;
 
     var courses_played = [];
@@ -80,8 +85,8 @@ function get_courses_played() {
 
 
 function get_dates_and_scores_for_course_and_player(course) {
-    var player = get_player_data_from_db('cruoti@gmail.com');
-    // var course = "Wickham";
+    var username = sessionStorage.getItem('username');
+    var player = get_player_data_from_db(username);
     var playerRoundCount = Object.keys(player).length;
 
     var dates = [];
@@ -107,7 +112,8 @@ function get_dates_and_scores_for_course_and_player(course) {
  ---------------------------------------
  */
 function show_recent_scores() {
-    var player = get_player_data_from_db('cruoti@gmail.com');
+    var username = sessionStorage.getItem('username');
+    var player = get_player_data_from_db(username);
 
     var playerRoundCount = Object.keys(player).length;
     var targetRecentCount = 5;
@@ -132,7 +138,8 @@ function show_recent_scores() {
 
 
 function show_all_scores_for_course(course) {
-    var player = get_player_data_from_db('cruoti@gmail.com');
+    var username = sessionStorage.getItem('username');
+    var player = get_player_data_from_db(username);
     if (course == null)
     {
         course = get_courses_played()[0];
