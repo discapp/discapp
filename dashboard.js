@@ -41,6 +41,14 @@ var playerData = {
 };
 
 
+window.alert(sessionStorage.getItem('playerData'));
+
+if (sessionStorage.getItem('playerData') == null) {
+    sessionStorage.setItem('playerData', JSON.stringify(playerData));
+}
+
+window.alert(sessionStorage.getItem('playerData'));
+
 /*
  ---------------------------------------
  Functions to get player data
@@ -51,6 +59,7 @@ function get_player_data_from_db(playername) {
     TODO: Replace with DB calls
     Return hash like `var cruoti` is setup above
      */
+    var playerData = JSON.parse(sessionStorage.getItem('playerData'));
     return playerData[playername];
 }
 

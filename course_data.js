@@ -31,25 +31,25 @@ function createCourseComboBoxOptions() {
 
 function submit_scores() {
     var username = 'cruoti@gmail.com';
-    window.alert(7);
+    // window.alert(7);
     var courseDropdown = document.getElementById('combo');
     var selected_course = courseDropdown.options[courseDropdown.selectedIndex].text;
-    window.alert(selected_course);
+    // window.alert(selected_course);
 
     var dateField = document.getElementById('datepicker');
     var date = dateField.value;
-    window.alert(date);
+    // window.alert(date);
 
     var scores = [];
-    for (var i=1; i<=3; i++)
+    for (var i=1; i<=18; i++)
     {
-        scores.push(document.getElementById('hole' + i).value);
+        scores.push(parseInt(document.getElementById('hole' + i).value));
     }
 
-    for (var i=0; i<scores.length; i++) {
-        window.alert(scores[i]);
-//                    document.write('<p>' + scores[i] + '</p>');
-    }
+//     for (var i=0; i<scores.length; i++) {
+//         window.alert(scores[i]);
+//         // document.write('<p>' + scores[i] + '</p>');
+// }
 
     submitScoresToDB(username, selected_course, date, scores);
 }
@@ -57,9 +57,46 @@ function submit_scores() {
 
 function submitScoresToDB(username, course, date, scores)
 {
-    window.alert(5);
-    window.alert(username);
-    window.alert(course);
-    window.alert(date);
-    window.alert(scores);
+    var playerData = get_playerData_from_db();
+    var player = playerData[username];
+    var playerRoundCount = Object.keys(player).length;
+
+    var maxRoundID = 0;
+    for (var i=0; i<playerRoundCount; i++) {
+        var roundID = Object.keys(player)[i];
+        if (roundID > maxRoundID) {
+            maxRoundID = roundID;
+        }
+    }
+
+    var newRoundID = parseInt(maxRoundID) + 1;
+
+    playerData[username][newRoundID] = {
+        'date': date,
+        'course': course,
+        'scores': scores
+    };
+
+    window.alert(JSON.stringify(playerData));
+    window.alert(sessionStorage.getItem('playerData'));
+    sessionStorage.setItem('playerData', JSON.stringify(playerData));
+    window.alert(sessionStorage.getItem('playerData'));
+    // window.alert(playerData[2]['scores']);
+    // window.alert(maxRoundID);
+    // window.alert(newRoundID);
+    //
+    // window.alert(5);
+    // window.alert(username);
+    // window.alert(course);
+    // window.alert(date);
+    // window.alert(scores);
+}
+
+function get_playerData_from_db() {
+    /*
+     TODO: Replace with DB calls
+     Return hash like `var cruoti` is setup above
+     */
+    var playerData = JSON.parse(sessionStorage.getItem('playerData'));
+    return playerData;
 }
